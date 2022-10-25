@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;700&display=swap');
+
+
+:root {
+    --dark:#0f0f0f;
+    --light-dark:#202020;
+}
+
+
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* HEADER-------------------- */
+
+.menu {
+    position: fixed;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+.menu-nav__list {
+    display: flex;
+    gap: 1.6rem;
+    list-style: none;
+
+}
+.menu-nav__list-item-link {
+    color: #fff;
+}
+
+/* Ukrywamy przycisk buttona na widoku desktopowym
+będzie widoczny dopiero poniżej 992px szerokości
+strony */
+.menu-hamburger {
+    background-color: transparent;
+    border: none;
+    display: none;
+}
+
+/* BANNER -------------------------------------- */
+
+.banner {
+    background-image: url('./images/BG\ Image.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.banner-text {
+    color: #fff;
+}
+.banner-text__title {
+    font-size: 3.5rem;
+
+}
+.banner-text__desc {
+    font-weight: 400;
+    max-width: 80%;
+    margin:2rem 0;
+}
+.banner-text__btn {
+    min-width: 140px;
+    padding: 0.7rem 0;
+    background-color: #fff;
+    border-radius: 25px;
+    border: none;
+    margin-bottom: 70px;
+}
+
+
+.banner-images {
+    display: flex;
+    gap: 5px;
+}
+.banner-images__image:nth-child(1) {
+    position: relative;
+    top: -30px;
+}
+.banner-images__image:nth-child(2) {
+    position: relative;
+    top: 30px;
+}
+
+.banner-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+
+
+/* CLOCK */
+
+.clock-btn {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    color: #fff;
+    height: 60px;
+    width: 60px;
+    border-radius: 0px 60px 0px 0px;
+    text-align: center;
+    font-size: 1.5rem;
+    border: none;
+    background-color: var(--dark);
+    cursor: pointer;
+    z-index: 1;
+}
+/* przesuwam delikatnie w dół/lewo ikonkę wewnątrz przycisku */
+.clock-btn i {
+    position: relative;
+    top:5px;
+    left:-5px;
+}
+
+.clock-field {
+    width: 280px;
+    background-color: var(--light-dark);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+    color: #fff;
+    padding: 2rem 0;
+    border-radius: 0px 12px 0 0;
+    text-align: center;
+}
+
+.clock-field p:nth-child(1) {
+    color: rgba(255, 255, 255, 0.671);
+}
+.clock-field p:nth-child(2) {
+    font-size: 1.4rem;
+}
+
+
+
+
+
+
+/* Widok mobilny dla bannera */
+@media(max-width:992px) {
+    .banner {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .banner-images {
+        display: none;
+    }
+    .banner-text__title {
+        font-size:2.5rem
+    }
+    .banner-text__desc {
+        font-size: 0.8rem;
+    }
+}
+
+
+/* Przestawiamy nav na lewą stronę ekranu i robimy przycisk menu widocznym */
+@media(max-width:992px) {
+    .menu-hamburger {
+        display: block;
+    }
+    .menu-nav {
+        position: fixed;
+        top:0;
+        left:0;
+        width: 60%;
+        max-width: 280px;
+        min-height: 100vh;
+        background-color: var(--light-dark);
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .menu-nav__list {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+    .menu-nav__list-item-link {
+       font-size: 1.5rem;
+    }
+}
